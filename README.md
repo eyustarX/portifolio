@@ -4,7 +4,7 @@ A responsive personal portfolio website built to showcase my skills, projects, a
 
 ## 🚀 Live Demo
 
-🔗 **Portfolio:** https://your-portfolio-link
+🔗 **Portfolio:** https://eyustarx.github.io/portifolio/
 
 ---
 

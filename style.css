@@ -110,6 +110,15 @@ ul {
   max-width: 700px;
 }
 
+.profile-image {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--accent);
+  margin-bottom: 20px;
+}
+
 .greeting {
   color: var(--accent);
   font-size: 18px;
@@ -312,17 +321,43 @@ ul {
   margin: 0 auto;
 }
 
-.experience-content {
+.experience-card {
   background-color: var(--bg-card);
   border: 1px solid var(--border-color);
-  border-radius: 10px;
-  padding: 30px;
+  border-radius: 12px;
+  padding: 40px;
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.experience-card:hover {
+  border-color: var(--accent);
+}
+
+.experience-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.experience-header i {
+  font-size: 28px;
+  color: var(--accent);
+}
+
+.experience-header h3 {
+  font-size: 20px;
+  font-weight: 600;
 }
 
 .experience-content p {
   color: var(--text-secondary);
   font-size: 16px;
-  line-height: 1.8;
+  line-height: 1.9;
 }
 
 .skills {
@@ -510,27 +545,45 @@ ul {
   margin-bottom: 40px;
 }
 
+.contact-form-main {
+  text-align: left;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.contact-secondary {
+  margin-top: 50px;
+}
+
+.contact-secondary-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+}
+
 .contact-info {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 20px;
+  justify-content: center;
+  gap: 15px;
 }
 
 .contact-item {
   display: flex;
   align-items: center;
-  gap: 12px;
-  font-size: 16px;
-  padding: 12px 24px;
+  gap: 10px;
+  font-size: 15px;
+  padding: 10px 20px;
   border: 1px solid var(--border-color);
   border-radius: 8px;
   transition:
     border-color 0.3s ease,
     transform 0.3s ease;
-  width: 100%;
-  max-width: 350px;
-  justify-content: center;
 }
 
 .contact-item:hover {
@@ -539,7 +592,7 @@ ul {
 }
 
 .contact-item i {
-  font-size: 20px;
+  font-size: 18px;
   color: var(--accent);
 }
 

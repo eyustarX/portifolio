@@ -7,17 +7,6 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// GET /api/profiles - list all stored profiles
-app.get("/api/profiles", async (req, res) => {
-  try {
-    const [rows] = await pool.query("SELECT * FROM profiles");
-    res.json(rows);
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ error: "Server error" });
-  }
-});
-
 // GET /api/profiles/:id
 app.get("/api/profiles/:id", async (req, res) => {
   try {
@@ -41,11 +30,11 @@ app.get("/api/profiles/:id", async (req, res) => {
 app.put("/api/profiles/:id", async (req, res) => {
   try {
     const { id } = req.params;
-    const { name, bio, experience } = req.body;
+    const { name, bio, experience, image_url } = req.body;
 
     const [result] = await pool.query(
-      "UPDATE profiles SET name = ?, bio = ?, experience = ? WHERE id = ?",
-      [name, bio, experience, id],
+      "UPDATE profiles SET name = ?, bio = ?, experience = ?, image_url = ? WHERE id = ?",
+      [name, bio, experience, image_url, id],
     );
 
     if (result.affectedRows === 0) {
@@ -53,6 +42,29 @@ app.put("/api/profiles/:id", async (req, res) => {
     }
 
     res.json({ message: "Profile updated successfully" });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "Server error" });
+  }
+});
+
+// POST /api/messages - store a contact form submission
+app.post("/api/messages", async (req, res) => {
+  try {
+    const { name, email, message } = req.body;
+
+    if (!name || !email || !message) {
+      return res
+        .status(400)
+        .json({ error: "Name, email, and message are required" });
+    }
+
+    await pool.query(
+      "INSERT INTO messages (name, email, message) VALUES (?, ?, ?)",
+      [name, email, message],
+    );
+
+    res.status(201).json({ message: "Message sent successfully" });
   } catch (err) {
     console.error(err);
     res.status(500).json({ error: "Server error" });

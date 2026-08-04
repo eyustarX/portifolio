@@ -4,6 +4,7 @@ const statusEl = document.getElementById("edit-status");
 const nameInput = document.getElementById("edit-name");
 const bioInput = document.getElementById("edit-bio");
 const experienceInput = document.getElementById("edit-experience");
+const imageInput = document.getElementById("edit-image");
 
 // Read ?id=2 from the URL, e.g. edit.html?id=2 — defaults to 1 if not provided
 const urlParams = new URLSearchParams(window.location.search);
@@ -28,6 +29,7 @@ async function loadProfileIntoForm() {
     nameInput.value = profile.name;
     bioInput.value = profile.bio;
     experienceInput.value = profile.experience;
+    imageInput.value = profile.image_url || "";
   } catch (err) {
     console.error("Could not load profile:", err);
     statusEl.textContent = "Could not load current profile data.";
@@ -44,6 +46,7 @@ form.addEventListener("submit", async (e) => {
     name: nameInput.value,
     bio: bioInput.value,
     experience: experienceInput.value,
+    image_url: imageInput.value,
   };
 
   try {

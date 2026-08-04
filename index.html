@@ -17,7 +17,9 @@
     <nav class="navbar">
       <div class="logo">Eyob<span>.</span></div>
       <ul class="nav-links">
+        <li><a href="edit.html" class="nav-edit-link">Edit Profile</a></li>
         <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
         <li><a href="#skills">Skills</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#education">Education</a></li>
@@ -29,12 +31,9 @@
     <section class="hero" id="home">
       <div class="hero-content">
         <p class="greeting">Hello, I'm</p>
-        <h1>Eyob Tamiru</h1>
+        <h1 id="profile-name"></h1>
         <h2 class="typing-text">Software Engineer</h2>
-        <p class="hero-desc">
-          BSc Software Engineering student at AASTU, passionate about
-          problem-solving and bulding clean, functional web application
-        </p>
+        <p class="hero-desc" id="profile-bio"></p>
         <div class="hero-buttons">
           <a href="#projects" class="btn btn-primary">View Projects</a>
           <a
@@ -53,7 +52,7 @@
         <p>
           I'm a Software Engineering student at Addis Ababa Science and
           Technology University, passionate about solving problems through code.
-          I completed the A2SV Education program, sharpening my Data Sturctures
+          I completed the A2SV Education program, sharpening my Data Structures
           and Algorithms skills by solving 400+ problems on Codeforces and
           LeetCode.
         </p>
@@ -75,6 +74,12 @@
         </div>
       </div>
     </section>
+
+    <section class="experience fade-section" id="experience">
+      <h2 class="section-title">Experience</h2>
+      <div class="experience-content" id="profile-experience"></div>
+    </section>
+
     <section class="skills" id="skills">
       <h2 class="section-title">Skills</h2>
       <div class="skills-grid">

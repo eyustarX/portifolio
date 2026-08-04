@@ -84,3 +84,39 @@ window.addEventListener("scroll", () => {
     }
   });
 });
+
+// --- Load profile data (name, bio, experience) from the backend API ---
+
+// Read ?id=2 from the URL, e.g. index.html?id=2 — defaults to 1 if not provided
+const urlParams = new URLSearchParams(window.location.search);
+const profileId = urlParams.get("id") || 1;
+
+async function loadProfile() {
+  try {
+    const response = await fetch(
+      `http://localhost:3000/api/profiles/${profileId}`,
+      {
+        cache: "no-store",
+      },
+    );
+
+    if (!response.ok) {
+      throw new Error(`Request failed with status ${response.status}`);
+    }
+
+    const profile = await response.json();
+
+    document.getElementById("profile-name").textContent = profile.name;
+    document.getElementById("profile-bio").textContent = profile.bio;
+    document.getElementById("profile-experience").innerHTML =
+      `<p>${profile.experience}</p>`;
+
+    // Carry the current profile id forward into the Edit Profile link
+    const editLink = document.querySelector(".nav-edit-link");
+    if (editLink) editLink.href = `edit.html?id=${profileId}`;
+  } catch (err) {
+    console.error("Could not load profile:", err);
+  }
+}
+
+loadProfile();

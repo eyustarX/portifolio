@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Profile - Eyob Tamiru</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="logo">Eyob<span>.</span></div>
+      <ul class="nav-links">
+        <li><a href="index.html">Back to Portfolio</a></li>
+      </ul>
+    </nav>
+
+    <section class="edit-page">
+      <h2 class="section-title">Edit Profile</h2>
+
+      <form id="edit-profile-form" class="edit-form">
+        <label for="edit-name">Name</label>
+        <input type="text" id="edit-name" required />
+
+        <label for="edit-bio">Bio</label>
+        <textarea id="edit-bio" rows="5" required></textarea>
+
+        <label for="edit-experience">Experience</label>
+        <textarea id="edit-experience" rows="5" required></textarea>
+
+        <div class="edit-form-buttons">
+          <button type="submit" class="btn btn-primary">Save</button>
+          <a href="index.html" class="btn btn-secondary">Cancel</a>
+        </div>
+      </form>
+
+      <p id="edit-status" class="edit-status"></p>
+    </section>
+
+    <script src="edit.js"></script>
+  </body>
+</html>
